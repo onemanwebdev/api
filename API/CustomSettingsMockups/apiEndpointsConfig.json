@@ -1,0 +1,59 @@
+{
+    "globalSettings" : {
+        "sortKeyword" : "[keyName ex. 'q' or 'query' - default 'sort']",
+        "searchKeyword" : "[keyName ex. 'search' - default 'search']",
+        "fieldSelectionKeyword" : "[keyName ex. 'fileds' - default 'fields']",
+        "paginationDefault": {
+            "enable" : "['true'] | ['false']",
+            "offsetKeyword" : "[offsetKeyword]",
+            "limit": ["[intiger]", "[limitKeyword]"],
+        }
+    },
+    "endpoints" : [
+        {
+            "type" : "['collection'] | ['item'] | ['multiitems']",
+            "name" : "for 'collections': [collectionName]; for 'items': [naturalID] | [specificID];",
+            "parents" : [
+                "['root'] | [collectionsNames] | [collectionsNames + collectionsOutputFieldNamesAsIDs - ex. 'collectionName/oputputFieldName']"
+            ],
+            "options" : {
+                "sort" : "['true']* | ['false']",
+                "search" : "['true']* | ['false']",
+                "filter" : "['true']* | ['false']",
+                "fieldSelection" : [
+                    "[fieldName] | ['all']",
+                    "[...]",
+                    "[...]"
+                ],
+                "limit" : {
+                    "[paramName]" : ["[format]", "[outputField]"],
+                    "[...]" : ["..."],
+                    "[...]" : ["..."]
+                },
+                "pagination" : ["[eneble - true | false]", "[limit - integer]"]
+            },
+            "source" : {
+                "tableName" : "[tableName]",
+                "columnLabel" : "[label]"
+            },
+            "output" : {
+                "type" : "JSON",
+                "body" : {
+                    "[specificField - ex. 'date']" : "[dateFormat]",
+                    "[dataObjectName]" : {
+                        "[fieldName]" : "[fieldDataFormat - ex. 'string', 'bool', 'int', 'bigint', etc.]",
+                        "[...]" : "[...]",
+                        "[...]" : "[...]"
+                    }
+                }
+            },
+            "childs" : [
+                "[collectionsNames] | [outputFieldNamesAsIDs]",
+                "...",
+                "..."
+            ]
+        },
+        {"..."},
+        {"..."}
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "globalSettings" : {
+        "sortKeyword" : "sort",
+        "searchKeyword" : "search",
+        "fieldSelectionKeyword" : "fileds",
+        "paginationDefault": {
+            "enable" : true,
+            "offsetKeyword" : "offset",
+            "limit": [20, "limit"]
+        }
+    },
+    "endpoints" : [
+        {
+            "type" : "collection",
+            "name" : "cars",
+            "parents" : [
+                "root"
+            ],
+            "options" : {
+                "sort" : true,
+                "search" : true,
+                "filter" : true,
+                "fieldSelection" : [
+                    "all"
+                ],
+                "limit" : {},
+                "pagination" : [true, 10]
+            },
+            "source" : {
+                "tableName" : "test"
+            },
+            "output" : {
+                "type" : "JSON",
+                "body" : {
+                    "date" : "yyyy.mm.dd hh:mm",
+                    "data" : {
+                        "poductionDate" : "date(yyyy)",
+                        "manufacturer" : "string",
+                        "noOfDoors" : "float",
+                        "engineCapacityLiters" : "integer"
+                    }
+                }
+            },
+            "childs" : []
+        }
+    ]
+}
